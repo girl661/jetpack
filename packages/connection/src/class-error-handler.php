@@ -330,7 +330,7 @@ class Error_Handler {
 				$user_token = $manager->get_access_token( JETPACK_MASTER_USER );
 				if ( $user_token && is_object( $user_token ) && isset( $user_token->secret ) ) {
 					$token_parts = explode( ':', wp_unslash( $token ) );
-					if ( isset( $token_parts[0] ) && ! empty( $token_parts[0] ) && false !== strpos( $user_token, $token_parts[0] ) ) {
+					if ( isset( $token_parts[0] ) && ! empty( $token_parts[0] ) && false !== strpos( $user_token->secret, $token_parts[0] ) ) {
 						return true;
 					}
 				}
